@@ -130,5 +130,5 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
 }
 
 else{
-    startScreen.innerHTML="OS Not Compatible";
+    startScreen.innerHTML="OS Not Compatible <br> Try to run it on Windows or Mac";
 }

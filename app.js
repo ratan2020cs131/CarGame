@@ -39,7 +39,7 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
             enemyCar.setAttribute('class', 'enemyCar');
             enemyCar.y = (i * 160);
             enemyCar.style.top = enemyCar.y + 'px';
-            enemyCar.style.backgroundColor = randomColor();
+            enemyCar.style.backgroundImage = ranCar();
             enemyCar.x = Math.floor(Math.random() * 380);
             enemyCar.style.left = enemyCar.x + 'px';
             gameArea.appendChild(enemyCar);
@@ -92,7 +92,7 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
             if (i.y >= 700) {
                 i.y -= 750;
                 i.x = Math.floor(Math.random() * 365);
-                i.style.backgroundColor = randomColor();
+                i.style.backgroundImage = ranCar();
                 i.style.left = i.x + 'px';
             }
             i.y += player.speed;
@@ -115,6 +115,11 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
         player.start = false;
         startScreen.classList.remove('hide');
         startScreen.innerHTML = "Your Score is " + player.score + "<br>Tap to play again";
+    }
+
+    function ranCar(){
+        let image = ['url(11.png)','url(33.png)','url(44.png)', 'url(55.png)'];
+        return image[Math.floor(Math.random()*image.length)];
     }
 
     // function scoreCard(car){

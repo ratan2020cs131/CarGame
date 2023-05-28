@@ -53,10 +53,13 @@
 .car,.enemyCar{
     height:60px;
     width: 35px;
-    background-color:red;
+    background-repeat: no-repeat;
     position: absolute;
     left:0px;
     bottom:100px;
+}
+.car{
+    background-image: url('22.png');
 }
 .roadLine{
     height: 110px;

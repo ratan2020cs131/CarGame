@@ -26,7 +26,7 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
         gameArea.innerHTML = '';
         startScreen.classList.add('hide');
 
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 7; i++) {
             let roadLine = document.createElement('div');
             roadLine.setAttribute('class', 'roadLine');
             roadLine.y = (i * 150);
@@ -34,7 +34,7 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
             gameArea.appendChild(roadLine);
         }
 
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 6; i++) {
             let enemyCar = document.createElement('div');
             enemyCar.setAttribute('class', 'enemyCar');
             enemyCar.y = (i * 160);
@@ -75,8 +75,8 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
     function moveLine() {
         let roadLines = document.querySelectorAll('.roadLine');
         roadLines.forEach((i) => {
-            if (i.y >= 700) {
-                i.y -= 750;
+            if (i.y >= 1000) {
+                i.y -= 1050;
             }
             i.y += player.speed;
             i.style.top = i.y + 'px';
@@ -89,8 +89,8 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
             if (gameOver(car, i)) {
                 end();
             }
-            if (i.y >= 700) {
-                i.y -= 750;
+            if (i.y >= 1000) {
+                i.y -= 1050;
                 i.x = Math.floor(Math.random() * 365);
                 i.style.backgroundImage = ranCar();
                 i.style.left = i.x + 'px';

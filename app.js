@@ -17,6 +17,7 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
     })
 
     startScreen.addEventListener('click', start);
+    let highScore = 0;
 
     function start() {
         player.start = true;
@@ -55,6 +56,7 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
         window.requestAnimationFrame(play);
     }
 
+    let incScore = true;
     function play() {
         let car = document.querySelector('.car');
         if (player.start) {
@@ -68,7 +70,10 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
             car.style.left = player.x + 'px';
             car.style.top = player.y + 'px';
             window.requestAnimationFrame(play);
-            score.innerHTML = "Score: " + player.score++;
+            incScore = !incScore;
+            if(incScore===true){
+                score.innerHTML = "Score: " + player.score++;
+            }
         }
     }
 
@@ -113,25 +118,15 @@ if (navigator.appVersion.indexOf("Win") != -1 || navigator.appVersion.indexOf("M
 
     function end() {
         player.start = false;
+        highScore = player.score > highScore ? player.score : highScore;
         startScreen.classList.remove('hide');
-        startScreen.innerHTML = "Your Score is " + player.score + "<br>Tap to play again";
+        startScreen.innerHTML = "High Score is "+ highScore +"<br>Your Score is " + player.score + "<br>Tap to play again";
     }
 
     function ranCar(){
         let image = ['url(11.png)','url(33.png)','url(44.png)', 'url(55.png)'];
         return image[Math.floor(Math.random()*image.length)];
     }
-
-    // function scoreCard(car){
-    //     c=car.getBoundingClientRect();
-    //     e=enemyCar.getBoundingClientRect();
-    //     let count=0;
-    //     if((c.top>e.bottom)||(c.bottom<e.top))
-    //         count++;
-    //     if(count==60)
-    //         player.score++;
-    //     console.log(player.score);
-    // }
 }
 
 else{
